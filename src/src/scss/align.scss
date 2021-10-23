@@ -1,0 +1,251 @@
+.center,
+.row,
+.col,
+.row-grid,
+.col-reverse,
+.row-reverse,
+.row-grid-reverse {
+	display: flex;
+	&[gutter] > * {
+		margin: 0;
+	}
+}
+
+.col,
+.col-reverse {
+	> * {
+		flex-shrink: 0;
+	}
+}
+
+.center {
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.col {
+	flex-direction: column;
+}
+
+.col-reverse {
+	flex-direction: column-reverse;
+}
+
+.row-reverse {
+	flex-direction: row-reverse;
+}
+
+.row-grid {
+	flex-wrap: wrap;
+}
+
+.row-grid-reverse {
+	flex-wrap: wrap-reverse;
+}
+
+/*** ----- Row ----- ***/
+.row,
+.row-reverse {
+	$i: 0;
+	$gutter-size: 100;
+	$step: 5;
+	@while ($i <= $gutter-size) {
+		&[gutter="#{$i}"] {
+			> * {
+				margin-left: #{$i * 0.5}px;
+				margin-right: #{$i * 0.5}px;
+			}
+		}
+		$i: $i + $step;
+	}
+	&[gutter] {
+		> *:first-child {
+			margin-left: 0;
+		}
+		> *:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/*** ----- Row Grid ----- ***/
+.row-grid,
+.row-grid-reverse {
+	$i: 0;
+	$gutter-size: 100;
+	$step: 5;
+	@while ($i <= $gutter-size) {
+		&[gutter-x="#{$i}"] {
+			margin-left: -#{$i * 0.5}px;
+			margin-right: -#{$i * 0.5}px;
+			> * {
+				padding-left: #{$i * 0.5}px;
+				padding-right: #{$i * 0.5}px;
+			}
+		}
+		&[gutter-y="#{$i}"] {
+			margin-top: -#{$i * 0.5}px;
+			margin-bottom: -#{$i * 0.5}px;
+			> * {
+				padding-top: #{$i * 0.5}px;
+				padding-bottom: #{$i * 0.5}px;
+			}
+		}
+		$i: $i + $step;
+	}
+}
+
+.row,
+.row-grid,
+.row-reverse,
+.row-grid-reverse {
+	&[align-x="left"] {
+		justify-content: flex-start;
+	}
+	&[align-x="right"] {
+		justify-content: flex-end;
+	}
+	&[align-x="center"] {
+		justify-content: center;
+	}
+	&[align-x="around"] {
+		justify-content: space-around;
+	}
+	&[align-x="between"] {
+		justify-content: space-between;
+	}
+	&[align-y="top"] {
+		align-items: flex-start;
+	}
+	&[align-y="bottom"] {
+		align-items: flex-end;
+	}
+	&[align-y="center"] {
+		align-items: center;
+	}
+	&[align-y="baseline"] {
+		align-items: baseline;
+	}
+	&[align-y="stretch"] {
+		align-items: stretch;
+	}
+	&[align-y-content="top"] {
+		align-content: flex-start;
+	}
+	&[align-y-content="bottom"] {
+		align-content: flex-end;
+	}
+	&[align-y-content="center"] {
+		align-content: center;
+	}
+	&[align-y-content="baseline"] {
+		align-content: baseline;
+	}
+	&[align-y-content="stretch"] {
+		align-content: stretch;
+	}
+	[align-self="top"] {
+		align-self: flex-start;
+	}
+	[align-self="bottom"] {
+		align-self: flex-end;
+	}
+	[align-self="center"] {
+		-ms-grid-row-align: center;
+		align-self: center;
+	}
+	[align-self="baseline"] {
+		align-self: baseline;
+	}
+	[align-self="stretch"] {
+		-ms-grid-row-align: stretch;
+		align-self: stretch;
+	}
+}
+
+/*** ----- Column ----- ***/
+.col,
+.col-reverse {
+	$i: 0;
+	$gutter-size: 100;
+	@while ($i <= $gutter-size) {
+		&[gutter="#{$i}"] {
+			> * {
+				margin-top: #{$i * 0.5}px;
+				margin-bottom: #{$i * 0.5}px;
+			}
+		}
+		$i: $i + 5;
+	}
+	&[gutter] {
+		> *:first-child {
+			margin-top: 0;
+		}
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&[align-x="left"] {
+		align-items: flex-start;
+	}
+	&[align-x="right"] {
+		align-items: flex-end;
+	}
+	&[align-x="center"] {
+		align-items: center;
+	}
+	&[align-x="baseline"] {
+		align-items: baseline;
+	}
+	&[align-x="stretch"] {
+		align-items: stretch;
+	}
+	&[align-x-content="top"] {
+		align-content: flex-start;
+	}
+	&[align-x-content="bottom"] {
+		align-content: flex-end;
+	}
+	&[align-x-content="center"] {
+		align-content: center;
+	}
+	&[align-x-content="baseline"] {
+		align-content: baseline;
+	}
+	&[align-x-content="stretch"] {
+		align-content: stretch;
+	}
+	&[align-y="top"] {
+		justify-content: flex-start;
+	}
+	&[align-y="bottom"] {
+		justify-content: flex-end;
+	}
+	&[align-y="center"] {
+		justify-content: center;
+	}
+	&[align-y="around"] {
+		justify-content: space-around;
+	}
+	&[align-y="between"] {
+		justify-content: space-between;
+	}
+	[align-self="left"] {
+		align-self: flex-start;
+	}
+	[align-self="right"] {
+		align-self: flex-end;
+	}
+	[align-self="center"] {
+		-ms-grid-row-align: center;
+		align-self: center;
+	}
+	[align-self="baseline"] {
+		align-self: baseline;
+	}
+	[align-self="stretch"] {
+		-ms-grid-row-align: stretch;
+		align-self: stretch;
+	}
+}

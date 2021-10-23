@@ -1,6 +1,7 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Home from "./views/Home.vue"
+import Situation from "./views/Situation.vue"
 
 Vue.use(VueRouter)
 
@@ -9,6 +10,11 @@ const routes = [
 		path: "/",
 		name: "Home",
 		component: Home
+	},
+	{
+		path: "/situation/:id",
+		name: "Situation",
+		component: Situation
 	},
 ]
 
