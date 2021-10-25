@@ -1,7 +1,7 @@
 <template>
 	<section id="home-screen">
 		<img src="../assets/homepage.png" width="100%" height="100%">
-		<router-link :to="`/loading/${scenario}`">
+		<router-link :to="next">
 			<img src="../assets/app-logo.png" width="100%">
 		</router-link>
 	</section>
@@ -10,6 +10,16 @@
 <script>
 export default {
 	props: ["scenario"],
+	computed: {
+		next() {
+			switch (this.scenario) {
+				case "scenario2":
+					return "/scenario/scenario2";
+				default:
+					return "/loading/scenario1";
+			}
+		}
+	},
 }
 </script>
 

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.9465e23b23e812651b835cf520dee572.js"
+  "/precache-manifest.3cf490962a97b777c42d3be4d794413d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "irenliao.github.io"});

@@ -1,7 +1,7 @@
 <template>
 	<section id="scenario">
 		<iframe width="100%" height="100%" :src="`https://xd.adobe.com/embed/${id}/?fullscreen`" frameborder="0" allowfullscreen></iframe>
-		<router-link to="/introduction/2">Next Screen</router-link>
+		<router-link :to="next">Next Screen</router-link>
 	</section>
 </template>
 
@@ -19,6 +19,14 @@ export default {
 					alert("404");
 					break;
 			}
+		},
+		next() {
+			switch (this.scenario) {
+				case "scenario2":
+					return "/loading/scenario2";
+				default:
+					return "/introduction/2";
+			}
 		}
 	}
 }
@@ -26,16 +34,20 @@ export default {
 
 <style lang="scss" scoped>
 #scenario {
-	display: flex;
-	flex-direction: column;
+	// display: flex;
+	// flex-direction: column;
+	position: relative;
 	iframe {
 		width: 100%;
-		flex: 1;
+		height: 100%;
+		// flex: 1;
 	}
 	a {
-		display: block;
-		width: 100%;
-		padding: 3px;
+		// align-self: flex-end;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		padding: 1px 3px;
 		font-size: 10px;
 		background: rgb(109, 186, 243);
 		color: #fff;
