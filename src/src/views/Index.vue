@@ -13,7 +13,7 @@ export default {
 		next() {
 			switch (this.scenario) {
 				case "scenario2":
-					return "/homescreen/scenario2";
+					return "/scenario/scenario2";
 				default:
 					return "/homescreen/scenario1";
 			}
